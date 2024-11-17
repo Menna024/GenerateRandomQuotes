@@ -51,16 +51,20 @@ var quotes = [
     },
 ]
 
-var usedNumbers = [];
+var prevNumber=-1;
 
 function randomNumber() {
     var random = Math.floor(Math.random() * quotes.length);
-
-    if(usedNumbers.includes(random)){
+    //console.log('random '+random);
+    if(random === prevNumber){
         //console.log('used');
         return randomNumber();
     }
-    usedNumbers.push(random);
+    else
+    {
+        prevNumber = random;
+    }
+
     return random;
 }
 
